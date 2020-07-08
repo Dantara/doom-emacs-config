@@ -33,7 +33,7 @@
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
+(setq display-line-numbers-type `nil)
 
 
 ;; Here are some additional functions/macros that could help you configure Doom:
@@ -54,5 +54,9 @@
 ;; they are implemented.
 
 ;; Transparency
-(set-frame-parameter (selected-frame) 'alpha '(90 . 90))
- (add-to-list 'default-frame-alist '(alpha . (90 . 90)))
+(defconst doom-frame-transparency 95)
+(set-frame-parameter (selected-frame) 'alpha doom-frame-transparency)
+(add-to-list 'default-frame-alist `(alpha . ,doom-frame-transparency))
+
+;; Haskell stylish
+(setq haskell-stylish-on-save t)
